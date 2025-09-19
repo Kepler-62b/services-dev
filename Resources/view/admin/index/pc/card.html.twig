@@ -1,0 +1,62 @@
+{% trans_default_domain('service.admin') %}
+
+<tr class="vertical-middle" id="{{ item.id }}">
+    <td class="text-nowrap">
+        {# Пользовательское меню #}
+        {{ include(_self|replace({ "card.html.twig": "_usecase.html.twig" })) }}
+    </td>
+
+    {# Тип профиля #}
+{#    <td class="ms-0 text-center">#}
+{#        <div class="w-25">#}
+{#            <span class="d-inline-block text-truncate text-emphasis align-middle"#}
+{#                  style="max-width: 150px;">#}
+{#                {% if item.name %}#}
+{#                    {{ item.name }}#}
+{#                {% else %}#}
+{#                    {{ 'filter.unchosen_profile'|trans }}#}
+{#                {% endif %}#}
+{#            </span>#}
+{#        </div>#}
+{#    </td>#}
+
+    {# Заголовок услуги #}
+    <td style="min-width: 350px;">
+        <a
+{#                class="btn btn-sm btn-link text-decoration-none disabled"#}
+                class="btn btn-sm btn-link text-decoration-none"
+{#                href="{{ path('services:admin.newedit.edit', { id: item.id }) }}"#}
+                href="{{ path('services:admin.service', { id: item.id }) }}"
+{#                data-bs-toggle="modal"#}
+{#                data-bs-target="#modal"#}
+
+        >
+            <span class="d-inline-block text-truncate  align-middle" style="max-width: 350px;">
+                {{ item.name|raw }}
+            </span>
+        </a>
+    </td>
+
+    {# Содержимое услуги #}
+    <td class="w-100">
+        <span class="d-inline-block text-truncate align-middle"
+              style="max-width: 600px;">
+            {{ item.preview|striptags }}
+        </span>
+    </td>
+
+    <td class="w-100">
+        <span class="d-inline-block text-truncate align-middle"
+              style="max-width: 600px;">
+            {{ item.price }}
+        </span>
+    </td>
+
+    {# TODO #}
+{#    <td class="w-100">#}
+{#        <span class="d-inline-block text-truncate align-middle"#}
+{#              style="max-width: 600px;">#}
+{#            {{ item.date }}#}
+{#        </span>#}
+{#    </td>#}
+</tr>

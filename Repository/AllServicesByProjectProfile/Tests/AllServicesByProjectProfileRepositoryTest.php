@@ -25,10 +25,12 @@
 namespace BaksDev\Services\Repository\AllServicesByProjectProfile\Tests;
 
 use BaksDev\Services\Repository\AllServicesByProjectProfile\AllServicesByProjectProfileInterface;
+use PHPUnit\Framework\Attributes\Group;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\Attribute\When;
 
-//#[Group('')] // @TODO
+#[Group('services')]
+#[Group('services-repo')]
 #[When(env: 'test')]
 class AllServicesByProjectProfileRepositoryTest extends KernelTestCase
 {
@@ -46,6 +48,6 @@ class AllServicesByProjectProfileRepositoryTest extends KernelTestCase
             return;
         }
 
-        dd(iterator_to_array($result));
+        //        dd(iterator_to_array($result));
     }
 }

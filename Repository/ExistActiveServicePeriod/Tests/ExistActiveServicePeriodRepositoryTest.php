@@ -27,13 +27,12 @@ namespace BaksDev\Services\Repository\ExistActiveServicePeriod\Tests;
 use BaksDev\Orders\Order\Type\Event\OrderEventUid;
 use BaksDev\Services\Repository\ExistActiveServicePeriod\ExistActiveServicePeriodInterface;
 use BaksDev\Services\Type\Period\ServicePeriodUid;
+use PHPUnit\Framework\Attributes\Group;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\Attribute\When;
 
-/**
- * @group
- */
-//#[Group('')] // @TODO
+#[Group('services')]
+#[Group('services-repo')]
 #[When(env: 'test')]
 class ExistActiveServicePeriodRepositoryTest extends KernelTestCase
 {

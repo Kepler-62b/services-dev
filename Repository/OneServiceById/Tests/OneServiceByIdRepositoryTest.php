@@ -26,12 +26,12 @@ namespace BaksDev\Services\Repository\OneServiceById\Tests;
 
 use BaksDev\Orders\Order\Type\ServiceUid;
 use BaksDev\Services\Repository\OneServiceById\OneServiceByIdInterface;
+use PHPUnit\Framework\Attributes\Group;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\Attribute\When;
 
-/**
- * @group
- */
+#[Group('services')]
+#[Group('services-repo')]
 #[When(env: 'test')]
 class OneServiceByIdRepositoryTest extends KernelTestCase
 {
@@ -42,10 +42,8 @@ class OneServiceByIdRepositoryTest extends KernelTestCase
         /** @var OneServiceByIdInterface $OneServiceByIdInterface */
         $OneServiceByIdInterface = self::getContainer()->get(OneServiceByIdInterface::class);
 
-        $serv = $OneServiceByIdInterface->findOne(new ServiceUid('019920bb-72b5-7ad9-9d29-267d7dde9258'));
+        $result = $OneServiceByIdInterface->findOne(new ServiceUid('019920bb-72b5-7ad9-9d29-267d7dde9258'));
 
-        dd($serv);
-
-
+        //        dd($result);
     }
 }

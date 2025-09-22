@@ -30,6 +30,7 @@ use Symfony\Component\DependencyInjection\Attribute\When;
 use PHPUnit\Framework\Attributes\Group;
 
 #[Group('services')]
+#[Group('services-repo')]
 #[When(env: 'test')]
 class AllServicesRepositoryTest extends KernelTestCase
 {

@@ -27,10 +27,12 @@ namespace BaksDev\Services\Repository\AllServicePeriodByDateRepository\Tests;
 use BaksDev\Orders\Order\Type\ServiceUid;
 use BaksDev\Services\Repository\AllServicePeriodByDate\AllServicePeriodByDateRepository;
 use BaksDev\Services\Repository\AllServicePeriodByDate\AllServicePeriodByDateResult;
+use PHPUnit\Framework\Attributes\Group;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\Attribute\When;
 
-//#[Group('')] // @TODO
+#[Group('services')]
+#[Group('services-repo')]
 #[When(env: 'test')]
 class AllServicePeriodByDateRepositoryTest extends KernelTestCase
 {
@@ -43,7 +45,7 @@ class AllServicePeriodByDateRepositoryTest extends KernelTestCase
 
         $result = $AllServicePeriodRepository
             ->byDate(new \DateTimeImmutable('2025-09-19'))
-            ->findAll(new ServiceUid('019920bb-72b5-7ad9-9d29-267d7dde9258')); // Правка дисков
+            ->findAll(new ServiceUid('019920bb-72b5-7ad9-9d29-267d7dde9258'));
 
         if(false === $result->valid())
         {

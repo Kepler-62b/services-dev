@@ -31,18 +31,20 @@ use Symfony\Component\DependencyInjection\Attribute\When;
 use PHPUnit\Framework\Attributes\Group;
 
 #[Group('services')]
+#[Group('services-repo')]
 #[When(env: 'test')]
 class CurrentServiceEventRepositoryTest extends KernelTestCase
 {
     public function testRepository(): void
     {
+        self::assertTrue(true);
+
         /** @var CurrentServiceEventRepository $CurrentServiceEventRepository */
         $CurrentServiceEventRepository = self::getContainer()->get(CurrentServiceEventRepository::class);
 
         $result = $CurrentServiceEventRepository
-            ->forService(new Service())
+            ->byService(new Service())
             ->find();
 
-        self::assertTrue(true);
     }
 }
